@@ -1,12 +1,16 @@
 version: '1'
 services:
   tokenconsumer:
-    image: localhost/token-checker
+    image: fvinasinf/token-checker
     ports:
       - 8081:8081
     environment:
       PROFILE: "development"
+    volumes:
+      - tokenconsumervolume:/opt/logs
   tokenprovider:
     image: docker.io/skeet15/auth-vivelibre
     ports:
       - 8080:8080
+volumes:
+  tokenconsumervolume:
