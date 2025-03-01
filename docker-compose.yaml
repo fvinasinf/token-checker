@@ -1,0 +1,12 @@
+version: '1'
+services:
+  tokenconsumer:
+    image: localhost/token-checker
+    ports:
+      - 8081:8081
+    environment:
+      PROFILE: "development"
+  tokenprovider:
+    image: docker.io/skeet15/auth-vivelibre
+    ports:
+      - 8080:8080
